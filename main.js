@@ -114,7 +114,7 @@ function contrcaselleadiacenti(y, difset){
 function generabox(y, classe, difficoltà) {
   let box = document.createElement("div");
   box.classList.add(classe);
-  box.innerHTML = y
+  box.innerHTML = ""
   box.addEventListener("click", function() {
 
     // contrcaselleadiacenti(y, diff1)
