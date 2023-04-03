@@ -13,6 +13,10 @@
     align-items: center;
 }
 
+form{
+    margin-left: 10px;
+}
+
 .container{
     width: 100%;
     height: 90vh;
