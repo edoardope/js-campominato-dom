@@ -28,7 +28,15 @@ casellevuoteselezionate = []
 function aggiornaPunteggio() {
   let punteggio = casellevuoteselezionate.length;
   let punteggioElement = document.querySelector(".punteggio");
-  punteggioElement.innerHTML = `Punteggio: ${punteggio}`;
+
+  if (punteggio == 84){
+
+    griglia.innerHTML = "hai visnto con il punteggio massimo complimenti!!!!"
+
+  } else {
+    
+    punteggioElement.innerHTML = `Punteggio: ${punteggio}`;
+  }
   return punteggio
 }
 
@@ -106,11 +114,11 @@ function contrcaselleadiacenti(y, difset){
 function generabox(y, classe, difficoltà) {
   let box = document.createElement("div");
   box.classList.add(classe);
-  box.innerHTML = y;
+  box.innerHTML = y
   box.addEventListener("click", function() {
 
     // contrcaselleadiacenti(y, diff1)
-    let = nuovonumero = contrcaselleadiacenti(y, diff1)
+    let nuovonumero = contrcaselleadiacenti(y, diff1)
         
     if (difficoltà.includes(y)) { // controlla se il numero è presente nell'array numeriCasuali
       
@@ -122,8 +130,7 @@ function generabox(y, classe, difficoltà) {
 
     } else if (casellevuoteselezionate.includes(y)) {
       
-      
-    } else {
+    }else {
 
       box.classList.add("blue");
       casellevuoteselezionate.push(y)
@@ -152,6 +159,7 @@ start1.addEventListener("click", function() {
     start1.classList.add("none");
     start2.classList.add("none");
     start3.classList.add("none");
+    btnc.classList.add("none");
 
     for (let y = 1; y <= 100; y++) {
       let newBox = generabox(y, "box", diff1);
@@ -167,6 +175,7 @@ start2.addEventListener("click", function() {
     start1.classList.add("none");
     start2.classList.add("none");
     start3.classList.add("none");
+    btnc.classList.add("none");
 
     for (let y = 1; y <= 81; y++) {
       let newBox = generabox(y, "box2", diff2);
@@ -182,6 +191,7 @@ start3.addEventListener("click", function() {
     start1.classList.add("none");
     start2.classList.add("none");
     start3.classList.add("none");
+    btnc.classList.add("none");
 
     for (let y = 1; y <= 49; y++) {
       let newBox = generabox(y, "box3", diff3);
