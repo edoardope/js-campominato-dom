@@ -115,6 +115,17 @@ function generabox(y, classe, difficoltà) {
   let box = document.createElement("div");
   box.classList.add(classe);
   box.innerHTML = ""
+  box.addEventListener("contextmenu", function(event) {
+    
+    event.preventDefault();
+    
+    if (!box.classList.contains("blue")) { // marchio bombe se la casella non è stata scoperta
+
+      box.innerHTML = "*"
+
+    }
+  
+  });  
   box.addEventListener("click", function() {
 
     // contrcaselleadiacenti(y, diff1)
