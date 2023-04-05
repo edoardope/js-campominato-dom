@@ -115,6 +115,10 @@ function generabox(y, classe, difficoltà) {
   let box = document.createElement("div");
   box.classList.add(classe);
   box.innerHTML = ""
+
+  // contrcaselleadiacenti(y, diff1)
+  let nuovonumero = contrcaselleadiacenti(y, diff1)
+
   box.addEventListener("contextmenu", function(event) {
     
     event.preventDefault();
@@ -122,14 +126,12 @@ function generabox(y, classe, difficoltà) {
     if (!box.classList.contains("blue")) { // marchio bombe se la casella non è stata scoperta
 
       box.innerHTML = "*"
+      box.classList.add("possiblebomb");
 
     }
   
   });  
   box.addEventListener("click", function() {
-
-    // contrcaselleadiacenti(y, diff1)
-    let nuovonumero = contrcaselleadiacenti(y, diff1)
         
     if (difficoltà.includes(y)) { // controlla se il numero è presente nell'array numeriCasuali
       
@@ -144,6 +146,7 @@ function generabox(y, classe, difficoltà) {
     }else {
 
       box.classList.add("blue");
+      box.classList.remove("possiblebomb");
       casellevuoteselezionate.push(y)
       aggiornaPunteggio()
       box.innerHTML = nuovonumero;
